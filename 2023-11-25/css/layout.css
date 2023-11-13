@@ -1,0 +1,14 @@
+body {
+  background-image: linear-gradient(135deg, #fdfcfb 0%, #e2d1c3 100%);
+}
+body img {
+  display: inline-block;
+  width: 100%;
+}
+body ul li {
+  list-style-type: none;
+}
+
+.wrapper {
+  text-align: center;
+}/*# sourceMappingURL=layout.css.map */
