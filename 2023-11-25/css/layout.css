@@ -1,47 +1,80 @@
 body {
-  background-color: #363434;
+  background-color: #b4adad;
 }
 body img {
   display: inline-block;
   width: 100%;
 }
+body ul {
+  background-color: #fff;
+}
 body ul li {
   list-style-type: none;
 }
 
-.phoneWrapper {
+.wrapper {
   position: relative;
   top: 10vh;
-  margin: 0 auto;
-  width: 296px;
-  max-width: 90%;
-  border: #ccc solid 2px;
+  width: 1200px;
+  max-width: 93%;
   background-color: #f2f1f8;
-  min-height: 632px;
+  margin: 0 auto;
+  height: 500px;
 }
-.phoneWrapper .navBar {
-  padding: 0px;
-  margin: auto 0;
-  width: 100%;
-  position: relative;
-  top: 1%;
+.wrapper h3 {
+  font-weight: bolder;
+  margin: 3%;
+  padding-top: 3%;
+}
+.wrapper ul {
+  margin: 3%;
+  border-radius: 13px;
+  font-size: 2vw;
+}
+.wrapper ul li {
+  margin-bottom: 1%;
+  border-bottom: solid 4px #ececec;
+  height: auto;
+}
+.wrapper ul li:first-child {
+  padding-top: 1%;
+}
+.wrapper ul li:last-child {
+  padding-bottom: 1%;
+}
+.wrapper ul p {
+  border-bottom: solid #ddd 1px;
+}
+
+.iconWrapper {
+  margin: auto;
+  background-color: white;
+  width: 5vh;
+  height: 5vh;
+  display: inline-block;
+  position: absolute;
+}
+.iconWrapper i {
+  border-radius: 50%;
+  width: 4vh;
+  height: 4vh;
+  background-color: #d5a6a1;
+  display: inline-block;
+  font-size: 1.5vw;
+  color: white;
+  text-align: center;
+  line-height: 4vh;
+}
+
+.nav {
+  margin: 3%;
+  color: #0978ce;
+  font-size: 1.5vw;
   display: flex;
   justify-content: space-between;
-  padding: 2%;
-  max-height: 36px;
 }
-.phoneWrapper .pinTop {
-  position: relative;
-}
-.phoneWrapper .pinTop .topCard {
-  position: absolute;
-  background-color: #ffffff;
-  width: 47%;
-  height: auto;
-  border: #ccc solid 2px;
-  top: 30%;
-  border-radius: 7px;
-}
-.design {
-  opacity: 0.7;
+.addList {
+  margin: auto;
+  width: 1200px;
+  max-width: 93%;
 }/*# sourceMappingURL=layout.css.map */
