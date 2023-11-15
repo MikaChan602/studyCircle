@@ -1,5 +1,5 @@
-console.log('Hello 11-25')
 
+// 種類
 class List {
     constructor(bindDom,inputDom){
         this.bindDom = bindDom; // 傳入綁定bindDom
@@ -13,13 +13,7 @@ class List {
         content:'',
         time:''
     }
-    // 固定產出格式
-    createObject(dom,time){
-        return{
-            content:dom,
-            time:time
-        }
-    }
+
     // 創建時間
     createdTime(){
         const today = new Date();
@@ -34,10 +28,12 @@ class List {
         const currentTime = `${HH}:${MM}:${SS}:${MS}`
         const current = `${fullDate}  ${currentTime}`;
     }
+
     deleteItem(key){
         const id = key;
         this.list.splice(0,1);
     }
+
     createNew(){
         const value = this.inputDom.value;
         // this.list.push(value);
@@ -52,6 +48,7 @@ class List {
         this.list.push(results);
         console.log(this.list);
     }
+
     loopList(){
         this.inputDom.innerHTML=''; // TODO: 如何刪除重複的內容
         this.list.forEach((value)=>{
@@ -60,6 +57,21 @@ class List {
         })
     }
 }
+
+class type{
+    constructor(title){
+        this.title = title;
+    }
+    totalTitle = [{
+        title:'我的列表',
+        instance:''
+    }];
+    createNewType(){
+        totalTitle.push(title)
+    }
+}
+
+
 
 // 第一個TODOLIST instance
 const listTarget = document.getElementById('bindData')
