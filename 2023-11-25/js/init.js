@@ -1,19 +1,19 @@
 
-// 種類
+// 各種類型的todolist的原型
+
 class List {
     constructor(bindDom,inputDom){
         this.bindDom = bindDom; // 傳入綁定bindDom
         this.inputDom = inputDom; // 傳入應該綁定的input
     }
-
     list = [];
     totalList = ''; // 串接列表
     // 標準物件格式
     listObject={
         content:'',
-        time:''
+        time:'',
+        type:''
     }
-
     // 創建時間
     createdTime(){
         const today = new Date();
@@ -27,18 +27,54 @@ class List {
         const fullDate = `${year}-${month}-${day}`;
         const currentTime = `${HH}:${MM}:${SS}:${MS}`
         const current = `${fullDate}  ${currentTime}`;
+        return current
     }
 
     deleteItem(key){
-        const id = key;
-        this.list.splice(0,1);
+        const id = key - 1;
+        this.list.splice(id,1);
     }
+    loopList(){
+        // TODO: 如何刪除重複的內容
+        // this.list.forEach((value)=>{
+        //     this.totalList += value.content;
+        //     this.bindDom.innerHTML = this.totalList;
+        // })
+        const lastItem = this.list.length - 1;
+        this.totalList += this.list[lastItem].content;
+        this.bindDom.innerHTML = this.totalList;
+        this.listObject.time = this.createdTime();
+        this.listObject.type = selectedId;
+        
+    }
+}
 
+// Normal
+class Normal extends List {
     createNew(){
         const value = this.inputDom.value;
         // this.list.push(value);
-        const key = this.list.length -1;
+        const key = this.list.length +1;
         const btn = `<button type="button" class="btn btn-danger" onclick="newList.deleteItem(${key})">刪除</button>`
+        const content = `<li id=${key}>${value} ${btn}</li>`
+        const time = this.createdTime();
+        //const type = 
+        const results = {
+            content:content,
+            time:time,
+            type:selectedId
+        }
+        this.list.push(results);
+        console.log(this.list);
+    }
+}
+
+class Work extends List {
+    createNew(){
+        const value = this.inputDom.value;
+        // this.list.push(value);
+        const key = this.list.length +1;
+        const btn = `<button type="button" class="btn btn-danger" onclick="newList.deleteItem(${key})">工作完成</button>`
         const content = `<li id=${key}>${value} ${btn}</li>`
         const time = this.createdTime();
         const results = {
@@ -48,27 +84,16 @@ class List {
         this.list.push(results);
         console.log(this.list);
     }
-
-    loopList(){
-        this.inputDom.innerHTML=''; // TODO: 如何刪除重複的內容
-        this.list.forEach((value)=>{
-            this.totalList += value.content;
-            this.bindDom.innerHTML = this.totalList;
-        })
-    }
 }
 
-class type{
-    constructor(title){
-        this.title = title;
-    }
-    totalTitle = [{
-        title:'我的列表',
-        instance:''
-    }];
-    createNewType(){
-        totalTitle.push(title)
-    }
+
+// 包裝
+function createList(listTarget,inputTarget){
+    return new Normal(listTarget,inputTarget);
+}
+
+function createWorkList(listTarget,inputTarget){
+    return new Work(listTarget,inputTarget);
 }
 
 
@@ -76,12 +101,22 @@ class type{
 // 第一個TODOLIST instance
 const listTarget = document.getElementById('bindData')
 const inputTarget = document.getElementById('inputData')
-const newList = new List(listTarget,inputTarget); // 創建實例 instance
+const newList = createList(listTarget,inputTarget); // 創建實例 instance
+const workList = createWorkList()
 // newList.createdTime();
 function getInputData(){
     newList.createNew();
+    // const clearDom = document.getElementById('bindData');
+    // clearDom.remove();
     newList.loopList();
 }
+
+let selectedId = 'normal'; // 處理類別
+function getValue(thisValue){
+    selectedId = thisValue.value;
+    console.log(selectedId);
+}
+
 // 要把li 連接在一起
 // 想要的資料結構
 // TODO:

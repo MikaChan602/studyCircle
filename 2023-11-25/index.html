@@ -9,67 +9,31 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
 <body>
-    <div class="newList">
-        <h2>創建一個新的列表</h2>
-        <input type="text" class="form-control">
-    </div>
-    
-    <div class="wrapper row">
+    <div id="cardWrapper" class="wrapper row">
+        <div class="card col-12" >
+            <h3>我的列表</h3>
+            <div class="newType row">
+                <div class="col-8">
+                    <select class="form-select" id="selector" onchange="getValue(this)" >
+                        <option value="normal">基本</option>
+                        <option value="work">工作</option>
+                        <option value="sport">運動</option>
+                    </select>
+                </div>
+                <div class="col-4">
+                    <button type="button" class="btn btn-primary" onclick="getInputData()">新增</button>
+                </div>
+            </div>
+            <div class="addList">
+                <label for="inputData">新增代辦事項</label>
+                <input id="inputData" type="text" class="form-control">
         
-        <div class="card col-4" >
-            <h3>我的列表</h3>
-            <div class="nav">
-            </div>
-            <div class="addList">
-                <label for="inputData">新增代辦事項</label>
-                <input id="inputData" type="text" class="form-control">
-                <button type="button" class="btn btn-primary" onclick="getInputData()">新增</button>
             </div>
             <ul id="bindData">
-                <!-- 跑迴圈 -->
-            </ul>
-        </div>
-        <div class="card col-4">
-            <h3>我的列表</h3>
-            <div class="nav">
-                <!-- <div class="addNew">
-                    <i class="fa-solid fa-circle-plus"></i>
-                    <span>
-                        新增提醒事項
-                    </span>
-                </div> -->
-            </div>
-            <div class="addList">
-                <label for="inputData">新增代辦事項</label>
-                <input id="inputData" type="text" class="form-control">
-                <button type="button" class="btn btn-primary" onclick="getInputData()">新增</button>
-            </div>
-            <ul id="bindData">
-                <!-- 跑迴圈 -->
-            </ul>
-        </div>
-        <div class="card col-4">
-            <h3>我的列表</h3>
-            <div class="nav">
-                <!-- <div class="addNew">
-                    <i class="fa-solid fa-circle-plus"></i>
-                    <span>
-                        新增提醒事項
-                    </span>
-                </div> -->
-            </div>
-            <div class="addList">
-                <label for="inputData">新增代辦事項</label>
-                <input id="inputData" type="text" class="form-control">
-                <button type="button" class="btn btn-primary" onclick="getInputData()">新增</button>
-            </div>
-            <ul id="bindData">
-                <!-- 跑迴圈 -->
-            </ul>
-        </div>
-        
-    </div>
 
+            </ul>
+        </div>
+    </div>
 </body>
 <script src="./js/init.js"></script>
 </html>
