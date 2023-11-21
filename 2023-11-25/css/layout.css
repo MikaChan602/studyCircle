@@ -75,4 +75,11 @@ body ul li {
   margin: auto;
   width: 1200px;
   max-width: 93%;
-}/*# sourceMappingURL=layout.css.map */
+}
+
+.addArea {
+  margin: 3%;
+  padding-top: 5%;
+  padding-bottom: 5%;
+  border-bottom: #a1b1d5 solid 3px;
+}

@@ -9,28 +9,26 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
 <body>
-    <div id="cardWrapper" class="wrapper row">
-        <div class="card col-12" >
+    <div id="cardWrapper" class="wrapper">
+        <div class="card" >
             <h3>我的列表</h3>
-            <div class="newType row">
-                <div class="col-8">
-                    <select class="form-select" id="selector" onchange="getValue(this)" >
-                        <option value="normal">基本</option>
-                        <option value="work">工作</option>
-                        <option value="sport">運動</option>
-                    </select>
-                </div>
-                <div class="col-4">
-                    <button type="button" class="btn btn-primary" onclick="getInputData()">新增</button>
-                </div>
-            </div>
-            <div class="addList">
-                <label for="inputData">新增代辦事項</label>
-                <input id="inputData" type="text" class="form-control">
-        
+            <div class="addArea row">
+                    <div class="col">
+                        <select class="form-select" id="selector" onchange="getValue(this)" >
+                            <option value="normal">基本</option>
+                            <option value="work">工作</option>
+                            <option value="sport">運動</option>
+                        </select>
+                    </div>
+                    <div class="addList col">
+                        <input id="inputData" type="text" class="form-control">
+                    </div>
+                    <div class="col">
+                        <button type="button" class="btn btn-primary" onclick="getInputData()">新增</button>
+                    </div>
             </div>
             <ul id="bindData">
-
+    
             </ul>
         </div>
     </div>
