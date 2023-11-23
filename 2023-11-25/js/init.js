@@ -23,7 +23,7 @@ class Normal extends List {
       return false;
     } else {
       // 操作DOM
-      const value = document.getElementById('inputData').value;
+      let value = document.getElementById('inputData').value;
       // checkbox狀態
       const chkBox = document.createElement('input');
       chkBox.type = 'checkbox';
@@ -35,7 +35,22 @@ class Normal extends List {
       // 第一個box
       const innerTextBox = document.createElement('div');
       innerTextBox.className = 'col-1';
-      innerTextBox.appendChild(chkBox)
+      innerTextBox.appendChild(chkBox);
+
+      // function 抓check狀態
+      innerTextBox.onclick = function(chk){
+        const thisChk = chk.target;
+        const status = chk.target.checked; // 抓狀態
+        if(status){
+          // console.log(thisChk);
+          const parent = thisChk.parentNode;
+          parent.classList.add('checked'); // 新增className
+          // console.log(parent);
+        }else{
+          const parent = thisChk.parentNode;
+          parent.classList.remove('checked'); // 新增className
+        }
+      } 
       li.appendChild(innerTextBox);
       // 第二個box
       const textInput = document.createElement('div');
@@ -48,6 +63,12 @@ class Normal extends List {
       // 創建按鈕組件
       const btn = document.createElement('button');
       btn.className = 'btn btn-danger';
+      btn.onclick=function(node){
+          console.log('刪除');
+          const deleteNode = node.target.parentNode.parentNode;
+          deleteNode.remove();
+          console.log(deleteNode);
+      }
       btn.appendChild(document.createTextNode('x'));
       // 將按鈕組件加入div中
       btnDiv.appendChild(btn);
@@ -102,6 +123,9 @@ const newList = createList(listTarget, inputTarget); // 創建實例 instance
 // newList.createdTime();
 function getInputData() {
   newList.createNew();
+  // 清除輸入值
+  const inputClearNode = document.getElementById('inputData');
+  inputClearNode.value = '';
 }
 
 let selectedId = "normal"; // 處理類別

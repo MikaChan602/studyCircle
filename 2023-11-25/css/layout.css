@@ -35,8 +35,8 @@ body ul li {
   height: auto;
   align-items: center;
 }
-.wrapper ul li .toDoItems {
-  display: inline-block;
+.wrapper ul li .checked .col-9 {
+  text-decoration: line-through;
 }
 .wrapper ul li:first-child {
   padding-top: 1%;

@@ -35,8 +35,10 @@ body{
             border-bottom: solid 4px #ececec;
             height: auto;
             align-items: center;
-            .toDoItems{
-                display: inline-block;
+            .checked{
+                .col-9{
+                    text-decoration:line-through;
+                }
             }
         }
         li:first-child{
