@@ -33,6 +33,10 @@ body ul li {
   margin-bottom: 1%;
   border-bottom: solid 4px #ececec;
   height: auto;
+  align-items: center;
+}
+.wrapper ul li .toDoItems {
+  display: inline-block;
 }
 .wrapper ul li:first-child {
   padding-top: 1%;
@@ -82,4 +86,4 @@ body ul li {
   padding-top: 5%;
   padding-bottom: 5%;
   border-bottom: #a1b1d5 solid 3px;
-}
+}/*# sourceMappingURL=layout.css.map */

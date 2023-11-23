@@ -5,58 +5,13 @@ class List {
     this.bindDom = bindDom; // 傳入綁定bindDom
     this.inputDom = inputDom; // 傳入應該綁定的input
   }
-  list = [];
-  totalList = ""; // 串接列表
-  // 標準物件格式
-  listObject = {
-    content: "",
-    time: "",
-    type: "",
-  };
-  // 創建時間
-  createdTime() {
-    const today = new Date();
-    const year = today.getFullYear();
-    const month = today.getMonth();
-    const day = today.getDate();
-    const HH = today.getHours();
-    const MM = today.getMinutes();
-    const SS = today.getSeconds();
-    const MS = today.getUTCMilliseconds();
-    const fullDate = `${year}-${month}-${day}`;
-    const currentTime = `${HH}:${MM}:${SS}:${MS}`;
-    const current = `${fullDate}  ${currentTime}`;
-    return current;
-  }
 
   deleteItem(key) {
     const id = key.id - 1;
     this.list.splice(id, 1);
     let li = key.parentNode;
     li.parentNode.removeChild(li);
-    console.log("刪除後陣列", this.list);
   }
-  loopList() {
-    // TODO: 如何刪除重複的內容
-    // this.list.forEach((value)=>{
-    //     this.totalList += value.con  tent;
-    //     this.bindDom.innerHTML = this.totalList;
-    // })
-    const lastItem = this.list.length - 1;
-    this.totalList += this.list[lastItem].content;
-    this.bindDom.innerHTML = this.totalList;
-    this.listObject.time = this.createdTime();
-    this.listObject.type = selectedId;
-    console.log("迴圈抓的陣列", this.list);
-  }
-  //   loop() {
-  //     this.list.forEach((value) => {
-  //       const bindData = document.getElementById("#bindData");
-  //       bindData.innerHTML = "";
-  //       this.totalList += value.content;
-  //       this.bindDom.innerHTML = this.totalList;
-  //     });
-  //   }
 }
 
 // Normal
@@ -67,19 +22,47 @@ class Normal extends List {
       alert("輸入值不可為空");
       return false;
     } else {
-      // this.list.push(value);
-      const key = this.list.length + 1;
-      const btn = `<button type="button" class="btn btn-danger" onclick="newList.deleteItem(this)">刪除</button>`;
-      const content = `<li id=${key}>${value} ${btn}</li>`;
-      const time = this.createdTime();
+      // 操作DOM
+      const value = document.getElementById('inputData').value;
+      // checkbox狀態
+      const chkBox = document.createElement('input');
+      chkBox.type = 'checkbox';
+      chkBox.className = 'form-check-label';
 
-      const results = {
-        content: content,
-        time: time,
-        type: selectedId,
-      };
-      this.list.push(results);
-      console.log(this.list);
+      // to-do-list狀態
+      const li = document.createElement('li'); 
+      li.className='row';
+      // 第一個box
+      const innerTextBox = document.createElement('div');
+      innerTextBox.className = 'col-1';
+      innerTextBox.appendChild(chkBox)
+      li.appendChild(innerTextBox);
+      // 第二個box
+      const textInput = document.createElement('div');
+      textInput.className = 'col-9';
+      const text = document.createTextNode(value);
+      textInput.appendChild(text);
+      // 第三個box
+      const btnDiv = document.createElement('div');
+      btnDiv.className = 'col-2';
+      // 創建按鈕組件
+      const btn = document.createElement('button');
+      btn.className = 'btn btn-danger';
+      btn.appendChild(document.createTextNode('x'));
+      // 將按鈕組件加入div中
+      btnDiv.appendChild(btn);
+      
+
+
+
+
+      // btn.createTextNode('刪除');
+      // const btn = `<button type="button" class="btn btn-danger" onclick="newList.deleteItem(this)">刪除</button>`;
+      
+      // li.appendChild(text);
+      li.appendChild(textInput);
+      li.appendChild(btnDiv);
+      this.bindDom.appendChild(li);
       return true;
     }
   }
@@ -88,7 +71,7 @@ class Normal extends List {
 // class Work extends List {
 //   createNew() {
 //     const value = this.inputDom.value;
-//     // this.list.push(value);
+//     this.list.push(value);
 //     const key = this.list.length + 1;
 //     const btn = `<button type="button" class="btn btn-danger" onclick="newList.deleteItem(${key})">工作完成</button>`;
 //     const content = `<li id=${key}>${value} ${btn}</li>`;
@@ -119,7 +102,6 @@ const newList = createList(listTarget, inputTarget); // 創建實例 instance
 // newList.createdTime();
 function getInputData() {
   newList.createNew();
-  newList.loopList(newList.createNew());
 }
 
 let selectedId = "normal"; // 處理類別
@@ -134,3 +116,5 @@ function getValue(thisValue) {
 // 1. 創建時間
 // 2. 內容 content
 // 3. id
+
+
