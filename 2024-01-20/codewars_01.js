@@ -1,6 +1,10 @@
 // Mika
+// Submitted
 // [Sum of Digits / Digital Root from Mika](https://www.codewars.com/kata/541c8630095125aba6000c00/train/javascript)
 function digitalRoot(n) {
+    if(n === 0){
+        return 0
+    }
     const initValue = n.toString()
     let numArr = [...initValue]
     let numLen = n.toString().length; // 轉str type 和計算str長度
