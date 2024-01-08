@@ -2,8 +2,8 @@
 // Submitted
 // [Sum of Digits / Digital Root from Mika](https://www.codewars.com/kata/541c8630095125aba6000c00/train/javascript)
 function digitalRoot(n) {
-    if(n === 0){
-        return 0
+    if(n < 10){
+        return n
     }
     const initValue = n.toString()
     let numArr = [...initValue]
@@ -30,3 +30,17 @@ function digitalRoot(n) {
     return sum
     
   }
+
+  const results = digitalRoot('999')
+  console.log(results);
+
+
+
+  // Balkoth解答的寫法????看不懂
+  // function digital_root(n) {
+  //   return (n - 1) % 9 + 1;
+  // }
+
+
+  // const two = digital_root('999')
+  // console.log(two);
