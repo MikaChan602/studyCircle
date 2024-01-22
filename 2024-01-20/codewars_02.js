@@ -32,10 +32,8 @@
     if (walk.length !== 10) return false;
     const counts = walk.reduce((acc, direction) => {
       acc[direction]++;
-    //   console.log('direction',direction,acc[direction]); 
       return acc;
     }, { n: 0, s: 0, e: 0, w: 0 });
-    console.log(counts);
     return counts.n === counts.s && counts.e === counts.w;
   }
 
@@ -46,12 +44,8 @@
 //     const south = walk.filter(item => item === 's').length;
 //     const east = walk.filter(item => item === 'e').length;
 //     const west = walk.filter(item => item === 'w').length;
-    
 //     return walk.length === 10 && north === south && west === east;
 //   }
 
-const arr1 = ['n','s','n','s','n','s','n','s','n','s']  // 10minutes
-const arr2 = ['w','e','w','e','w','e','w','e','w','e','w','e']
 
-const Value1 = isValidWalk(arr1)
-console.log('value1',Value1);
+module.exports =  isValidWalk

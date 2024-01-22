@@ -8,12 +8,9 @@ function digitalRoot(n) {
     const initValue = n.toString()
     let numArr = [...initValue]
     let numLen = n.toString().length; // 轉str type 和計算str長度
-    
-    if(numLen === 1) return numLen[1];
-    
     let sum = 0;
-    
-    function countArrSum(){
+  
+    while(numLen > 1){
       sum = 0;
       numArr.forEach((value)=>{
         sum += parseInt(value,10);
@@ -22,17 +19,10 @@ function digitalRoot(n) {
       const newValue = sum.toString();
       numArr = [...newValue];
     }
-  
-    while(numLen > 1){
-      countArrSum()
-    }
-    
     return sum
-    
   }
 
-  const results = digitalRoot('999')
-  console.log(results);
+  module.exports = digitalRoot
 
 
 
@@ -40,7 +30,3 @@ function digitalRoot(n) {
   // function digital_root(n) {
   //   return (n - 1) % 9 + 1;
   // }
-
-
-  // const two = digital_root('999')
-  // console.log(two);
