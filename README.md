@@ -26,3 +26,11 @@ Study circle. Since 2023.11.11
 - 02-13（Tue）
     - Topic : Mockoon from Carolyn
         1. [docs](https://mockoon.com/docs/latest/about/)
+- 03-09（Sat）
+    - Topic : Micro Frontends from Emma
+        1. 大型網站適用，為了不讓服務中斷。
+        2. 團隊轉換框架時使用。 ex. vue轉換react。
+- 04-06（Sat）
+    - Topic : TypeScript from howard
+- 04-?? (Sat)
+    - Topic : 
