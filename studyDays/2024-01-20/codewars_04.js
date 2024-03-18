@@ -1,7 +1,7 @@
 // Howard
 // hard
 // [Valid Braces from Howard](https://www.codewars.com/kata/5277c8a221e209d3f6000b56)
-
+// https://ithelp.ithome.com.tw/articles/10243953 => 參考解答
 function validBraces(braces){
     let strArr = [];
     // console.log('初始arr', braces);
@@ -12,7 +12,7 @@ function validBraces(braces){
         '{':'}'
     }
 
-    // 堆疊法
+    // !堆疊法
     for(let i = 0 ; i < braces.length; i++){
         if(braces[i] === '(' || braces[i] === '[' || braces[i] === '{'){
             strArr.push(braces[i])
