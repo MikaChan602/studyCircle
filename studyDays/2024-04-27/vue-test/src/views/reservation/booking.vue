@@ -8,45 +8,99 @@
 					</div>
 				</template>
 				<div>
-					<el-form label-position="left">
-						<el-form-item label="訂購者姓名" :label-width="labelWidth">
-							<el-input type="number" v-model="params.data.name" />
-						</el-form-item>
-						<el-form-item label="電話" :label-width="labelWidth">
-							<el-input type="number" v-model="params.data.phone" />
-						</el-form-item>
-						<el-form-item label="餐廳" :label-width="labelWidth">
-							<el-select v-model="params.store" placeholder="請選擇餐廳">
-								<el-option
-									v-for="item in store.data"
-									:label="item"
-									:value="item"
-									:key="item"
+					<el-row>
+						<el-col>
+							<label for="name">
+								姓名
+								<input
+									id="name"
+									type="text"
+									v-model="params.data.name"
+									data-test="name"
 								/>
-							</el-select>
-						</el-form-item>
-						<el-form-item label="人數" :label-width="labelWidth">
-							<el-input type="number" v-model="params.data.personNum" />
-						</el-form-item>
-						<el-form-item label="有無吃素" :label-width="labelWidth">
-							<el-radio-group v-model="params.data.vegetarian" data-test="radio">
-								<el-radio :value="false" data-test="radio1">無</el-radio>
-								<el-radio :value="true" data-test="radio2">有</el-radio>
-							</el-radio-group>
-						</el-form-item>
-						<el-form-item
-							label="吃素人數"
-							data-test="vegetarianNum"
-							v-show="params.data.vegetarian === 1"
-							:label-width="labelWidth"
-						>
-							<el-input type="number" v-model="params.data.vegetarianNum" />
-						</el-form-item>
-					</el-form>
+							</label>
+						</el-col>
+						<el-col>
+							<label for="phone">
+								電話
+								<input
+									id="phone"
+									type="number"
+									v-model="params.data.phone"
+									data-test="phone"
+								/>
+							</label>
+						</el-col>
+						<el-col>
+							<label for="store">
+								餐廳
+								<select
+									id="store"
+									v-model="params.data.store"
+									data-test="selector"
+									style="width: 155px"
+								>
+									<option
+										v-for="item in store.data"
+										:label="item"
+										:value="item"
+										:key="item"
+									>
+										{{ item }}
+									</option>
+								</select>
+							</label>
+						</el-col>
+						<el-col>
+							<label for="people">
+								人數
+								<input
+									id="people"
+									type="number"
+									v-model="params.data.personNum"
+									data-test="people"
+								/>
+							</label>
+						</el-col>
+						<el-col>
+							<span>是否吃素</span>
+							<label style="margin-left: 2%" for="vegetarian-yes">
+								<input
+									id="vegetarian-yes"
+									type="radio"
+									data-test="radio1"
+									:value="true"
+									v-model="params.data.vegetarian"
+								/>
+								是
+							</label>
+							<label for="vegetarian-no">
+								<input
+									id="vegetarian-no"
+									type="radio"
+									data-test="radio2"
+									:value="false"
+									v-model="params.data.vegetarian"
+								/>
+								否
+							</label>
+						</el-col>
+						<el-col v-show="params.data.vegetarian === true">
+							<label for="vegetarianNum">
+								吃素人數
+								<input
+									id="vegetarianNum"
+									type="number"
+									v-model="params.data.personNum"
+									data-test="vegetarianNum"
+								/>
+							</label>
+						</el-col>
+					</el-row>
 				</div>
 				<template #footer>
 					<el-button type="primary" @click="handleSubmit">提交</el-button>
-					<el-button type="danger" @click="clearParams">清出</el-button>
+					<el-button type="danger" @click="clearParams" data-test="clear">清除</el-button>
 				</template>
 			</el-card>
 		</div>
@@ -54,10 +108,7 @@
 </template>
 <script setup>
 	import { reactive, ref } from "vue";
-	// label寬度
-	const labelWidth = ref("110");
-	// 下拉選單
-	const date = ref("");
+	import { ElRow, ElCard, ElButton, ElCol } from "element-plus";
 	const store = reactive({ data: ["壽司郎", "爭鮮", "居酒屋"] });
 
 	// 參數
@@ -65,11 +116,10 @@
 		data: {
 			name: "",
 			phone: "",
-			date: "",
 			store: "",
 			personNum: "",
 			vegetarian: false,
-			vegetarianNum: 0,
+			vegetarianNum: "",
 		},
 	});
 
@@ -83,7 +133,11 @@
 		Object.keys(params.data).forEach((item) => {
 			params.data[item] = "";
 		});
-		datePicker.value = [];
+		params.data.vegetarian = false;
+	}
+	// 確認提交正確參數
+	function handleSubmit(){
+		
 	}
 </script>
 <style lang="scss" scoped>
