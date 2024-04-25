@@ -8,11 +8,6 @@ const router = createRouter({
         name: "login",
         component: () => import("../views/Login"),
     },
-    {
-        path:"",
-        name: "booking",
-        component: () => import("../views/reservation/booking"),
-    }
     ],
 });
 
