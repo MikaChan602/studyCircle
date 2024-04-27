@@ -18,7 +18,6 @@ describe('booking.vue',()=>{
         const params = {
             name: "",
             phone: "",
-            date: "",
             store: "",
             personNum: "",
             vegetarian: false,
@@ -87,7 +86,6 @@ describe('booking.vue',()=>{
         const params = {
             name: "",
             phone: "",
-            date: "",
             store: "",
             personNum: "",
             vegetarian: false,

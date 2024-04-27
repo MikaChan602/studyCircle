@@ -99,8 +99,10 @@
 					</el-row>
 				</div>
 				<template #footer>
-					<el-button type="primary" @click="handleSubmit">提交</el-button>
-					<el-button type="danger" @click="clearParams" data-test="clear">清除</el-button>
+					<el-button type="primary">提交</el-button>
+					<el-button type="danger" @click="clearParams" data-test="clear"
+						>清除</el-button
+					>
 				</template>
 			</el-card>
 		</div>
@@ -126,7 +128,6 @@
 	// 如果是吃素是無人數必等於0
 
 	// 提交表單
-	function handleSubmit() {}
 
 	// 清除參數
 	function clearParams() {
@@ -136,9 +137,7 @@
 		params.data.vegetarian = false;
 	}
 	// 確認提交正確參數
-	function handleSubmit(){
-		
-	}
+	function handleSubmit() {}
 </script>
 <style lang="scss" scoped>
 	.wrapper {
