@@ -32,5 +32,5 @@ Study circle. Since 2023.11.11
         2. 團隊轉換框架時使用。 ex. vue轉換react。
 - 04-06（Sat）
     - Topic : TypeScript from howard
-- 04-?? (Sat)
-    - Topic : 
+- 05-04 (Sat)
+    - Topic : Vue test utils from Mika 
