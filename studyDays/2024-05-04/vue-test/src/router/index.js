@@ -5,8 +5,8 @@ const router = createRouter({
     routes: [
     {
         path: "/",
-        name: "login",
-        component: () => import("../views/Login"),
+        name: "reservation",
+        component: () => import("../views/reservation/booking"),
     },
     ],
 });
